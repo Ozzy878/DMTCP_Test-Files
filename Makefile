@@ -8,7 +8,7 @@ export CFLAGS
 export LDFLAGS
 export LNK_DEST
 
-all: run-test-simple-pthread run-t-test run-test-futex-lock run-test-fork run-test-basic run-test-serial run-test-openMP #run-test-python run-test-MPI
+all: run-test-simple-pthread run-t-test run-test-futex-lock run-test-fork run-test-basic run-test-serial #run-test-openMP #run-test-python run-test-MPI
 
 run-test-simple-pthread: $(wildcard test-simple-pthread/*.c)
 	$(MAKE) -C test-simple-pthread
@@ -25,8 +25,8 @@ run-test-fork: $(wildcard test-fork/*.c)
 run-test-basic: $(wildcard test-basic/*.c)
 	$(MAKE) -C test-basic
 
-run-test-openMP: $(wildcard test-openMP/*.c)
-	$(MAKE) -C test-openMP
+#run-test-openMP: $(wildcard test-openMP/*.c)
+	#$(MAKE) -C test-openMP
 
 #run-test-python: $(wildcard test-pyhton/*.c)
 #	$(MAKE) -C test-python
@@ -64,7 +64,7 @@ clean:
 	$(MAKE) -C futex-lock clean
 	$(MAKE) -C test-fork clean
 	$(MAKE) -C test-basic clean
-	$(MAKE) -C test-openMP clean
+	#$(MAKE) -C test-openMP clean
 	#$(MAKE) -C test-pyhton clean
 	$(MAKE) -C test-MPI clean
 	$(MAKE) -C test-serial clean
